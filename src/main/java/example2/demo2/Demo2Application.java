@@ -15,7 +15,7 @@ public class Demo2Application {
 	@Bean
 	Hibernate6Module hibernate6Module() {
 //		강제 지연 로딩 설정
-//		hibernate5Module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
+//		hibernate6Module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
 		return new Hibernate6Module();
 	}
 }

@@ -1,5 +1,6 @@
 package example2.demo2.member.entity;
 
+import example2.demo2.member.entity.enums.MemberRole;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,17 +38,21 @@ public class Member {
     private Long phoneNumber;
 
     @Column(nullable = false)
-    private String password;
-//
-//    @Enumerated(EnumType.STRING)
-//    private MemberRole role;
+    private String password1;
 
-    @Column(name = "joined_at", nullable = false)
+    @Column(nullable = false)
+    private String password2;
+
+    @Enumerated(EnumType.STRING)
+    private MemberRole role;
+
+    @Column(name = "joined_at", nullable = false, columnDefinition = "DATE DEFAULT CURRENT_DATE")
     private LocalDate joinedAt;
 
     private Boolean activated = true;
 
     private Boolean phoneCertified = false;
+
 
     public void setUsername(String username) {
         this.username = username;
@@ -61,7 +66,21 @@ public class Member {
         this.email = email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword1(String password1) {
+        this.password1 = password1;
     }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
+    }
+
+    public void setRole(MemberRole role) {
+        this.role = role;
+    }
+
+
+    public Member() {
+        this.joinedAt = LocalDate.now();
+    }
+
 }
