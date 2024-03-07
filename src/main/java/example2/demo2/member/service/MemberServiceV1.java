@@ -1,6 +1,5 @@
 package example2.demo2.member.service;
 
-
 import example2.demo2.member.entity.Member;
 import example2.demo2.member.repository.MemberRepositoryV1;
 import lombok.RequiredArgsConstructor;

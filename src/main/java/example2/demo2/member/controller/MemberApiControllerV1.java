@@ -1,9 +1,7 @@
 package example2.demo2.member.controller;
 
 import example2.demo2.member.entity.Member;
-import example2.demo2.member.exception.MemberAlreadyExistsException;
 import example2.demo2.member.model.MemberDto;
-import example2.demo2.member.repository.MemberRepositoryV1;
 import example2.demo2.member.service.MemberServiceV1;
 import jakarta.validation.Valid;
 import lombok.Data;
@@ -13,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -40,7 +37,6 @@ public class MemberApiControllerV1 {
         Member oneMember = memberServiceV1.findOneMember(id);
         MemberDto memberDto = new MemberDto(oneMember);
         return new ResponseEntity<>(memberDto, HttpStatus.OK);
-
     }
 
     // 수정 해야 할 부분. 2024.03.06 Tue
@@ -67,16 +63,6 @@ public class MemberApiControllerV1 {
         member.setPassword1(request.getPassword1());
         member.setPassword2(request.getPassword2());
         return member;
-    }
-
-    private static Long setMemberInformation(CreateMemberRequest request, Member member) {
-        member.setEmail(request.email);
-        member.setUsername(request.username);
-        member.setNickname(request.nickname);
-        member.setPassword1(request.password1);
-        member.setPassword2(request.password2);
-
-        return member.getId();
     }
 
     @Data

@@ -20,9 +20,14 @@ public class MemberControllerV1 {
 
     private final MemberServiceV1 memberServiceV1;
 
+    @GetMapping("/members/login")
+    public String loginP() {
+        return "login";
+    }
 
     @GetMapping("/members")
     public String memberList(Model model) {
+
         List<Member> members = memberServiceV1.findMembers();
         model.addAttribute("members", members);
         return "members/memberList";

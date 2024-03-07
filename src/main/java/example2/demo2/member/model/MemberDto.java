@@ -5,7 +5,6 @@ import example2.demo2.member.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.ui.Model;
 
 @Data
 @EqualsAndHashCode(of = "memberId")
